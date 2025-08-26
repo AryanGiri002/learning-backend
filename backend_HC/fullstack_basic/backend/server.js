@@ -1,6 +1,6 @@
 import express from 'express';
 import 'dotenv/config'
-import cors from 'cors'
+// import cors from 'cors'
 
 
 /*
@@ -17,7 +17,7 @@ import cors from 'cors'
 
 
 const app = express();
-app.use(cors({origin: 'http://localhost:5174'}))
+// app.use(cors({origin: 'http://localhost:5174'}))      //this is used to counter SOP (Same Origin Policy)
 const port = process.env.PORT || 3000;
 
 app.get('/',(req,res)=>{
