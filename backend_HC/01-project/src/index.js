@@ -1,13 +1,29 @@
 import dotenv from 'dotenv'
 dotenv.config({ path: './.env' })
-import { DB_NAME } from "./constants.js";
-import mongoose from "mongoose";
 import express from "express";
 import connectDB from './db/db.js';
-const app = express()
+import app from './app.js';
 
 
 connectDB()
+           .then(()=>{
+                // 1. Set up the application-level error listener first.
+                // This ensures that if the server crashes after starting,
+                // we have a listener in place to catch it.
+                app.on("error", (error) => {
+                    console.log("SERVER ERROR:", error);
+                    throw error; // Or handle it more gracefully
+                });
+
+                // 2. Now that the listener is ready, start the server.
+                app.listen(process.env.PORT || 8000, () => {
+                    console.log(`⚙ Server is running at port : ${process.env.PORT}`);
+                });
+
+           })
+           .catch((err)=>{
+                console.log("MONGO db connection failed !!! : ",err)
+           })
 
 
 /*
@@ -16,10 +32,10 @@ connectDB()
 
     try {
         await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`)
-        app.on("error",(error)=>{
-            console.log("ERRR:",error)
-            throw error
-        })
+            app.on("error",(error)=>{
+                console.log("ERRR:",error)
+                throw error
+            })
 
         app.listen(process.env.PORT,()=>{
             console.log(`App is listening on port ${process.env.PORT}`)
