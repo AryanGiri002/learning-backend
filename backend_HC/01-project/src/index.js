@@ -1,5 +1,6 @@
-import dotenv from 'dotenv'
-dotenv.config({ path: './.env' })
+// import dotenv from 'dotenv'
+// dotenv.config({ path: './.env' })
+//commented out the above 2 lines becuase of the updated "dev" script in package.json , which loads the .env file even before index.js is run
 import express from "express";
 import connectDB from './db/db.js';
 import app from './app.js';
