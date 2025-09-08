@@ -3,11 +3,11 @@ import fs from "fs"
 
 
 // --- START DEBUGGING BLOCK ---
-console.log("--- Checking Cloudinary Environment Variables ---");
-console.log("Cloud Name:", process.env.CLOUDINARY_CLOUD_NAME);
-console.log("API Key:", process.env.CLOUDINARY_API_KEY);
-console.log("API Secret:", process.env.CLOUDINARY_API_SECRET ? "Loaded and ready" : "!!! NOT LOADED !!!");
-console.log("---------------------------------------------");
+// console.log("--- Checking Cloudinary Environment Variables ---");
+// console.log("Cloud Name:", process.env.CLOUDINARY_CLOUD_NAME);
+// console.log("API Key:", process.env.CLOUDINARY_API_KEY);
+// console.log("API Secret:", process.env.CLOUDINARY_API_SECRET ? "Loaded and ready" : "!!! NOT LOADED !!!");
+// console.log("---------------------------------------------");
 // --- END DEBUGGING BLOCK ---
 
 cloudinary.config({ 
