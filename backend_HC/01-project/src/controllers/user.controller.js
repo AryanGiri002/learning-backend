@@ -71,4 +71,12 @@ const registerUser = asyncHandler(async (req, res) => {
     );
 });
 
-export { registerUser };
+const loginUser = asyncHandler(async (req,res)=>{
+    // extract data from request body
+    // username based (OR) email based access
+    // find the user
+    // check the password , if wrong then say that "password is incorrect" , if the entered pasword is correct , then generate the access token and refresh token & send it to user
+    // send those tokens using secure cookies
+})
+
+export { registerUser,loginUser };
